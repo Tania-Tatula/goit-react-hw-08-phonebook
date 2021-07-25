@@ -1,0 +1,74 @@
+.NavLink {
+  margin-left: 20px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: black;
+}
+.NavLink-activ {
+  color: brown;
+  background-color: burlywood;
+}
+
+.Preloader {
+  z-index: 1001;
+  text-align: center;
+}
+
+.preloader__row {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  width: 70px;
+  height: 70px;
+  margin-top: -200%;
+  margin-left: -35%;
+  text-align: center;
+  animation: preloader-rotate 2s infinite linear;
+}
+
+.preloader__item {
+  position: absolute;
+  display: inline-block;
+  top: 0;
+  background-color: #337ab7;
+  border-radius: 100%;
+  width: 35px;
+  height: 35px;
+  animation: preloader-bounce 2s infinite ease-in-out;
+}
+
+.preloader__item:last-child {
+  top: auto;
+  bottom: 0;
+  animation-delay: -1s;
+}
+
+@keyframes preloader-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes preloader-bounce {
+  0%,
+  100% {
+    transform: scale(0);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+}
+
+/* стилі для домашньої сторінки */
+
+.Nav {
+  text-align: center;
+  border-bottom: rgb(91, 88, 87) solid 2px;
+  margin-bottom: 10px;
+}
+
+.movies-lists {
+  text-align: center;
+  font-size: 18px;
+}

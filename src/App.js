@@ -1,0 +1,73 @@
+// import "./App.css";
+import React, { Component, Suspense, lazy } from "react";
+import { Route, Switch } from "react-router-dom";
+import Loader from "./components/Loader";
+import AppBar from "./components/AppBar";
+// import "./style.css";
+import routes from "./routes";
+import { connect } from "react-redux";
+import { authOperations } from "./redux/auth";
+
+
+const HomeView = lazy(() =>
+  import("./views/HomeView" /*webpackChunkName *home-view**/)
+);
+const RegisterPage = lazy(() =>
+  import("./views/RegisterPage" /*webpackChunkName *movies-page**/)
+);
+const LoginPage = lazy(() =>
+  import("./views/LoginPage" /*webpackChunkName *movie-details-page**/)
+);
+const ContactsPage = lazy(() =>
+  import("./views/ContactsPage" /*webpackChunkName *movie-details-page**/)
+);
+
+
+
+class App extends Component{
+  componentDidMount(){
+    this.props.onGetCurrentUser();
+  }
+  render(){
+    return(
+      <>
+      <AppBar />
+
+      <Suspense fallback={<Loader />}>
+        <Switch>
+          <Route exact path={routes.home} component={HomeView} />
+          <Route exact path={routes.registerPage} component={RegisterPage} />
+          <Route path={routes.loginPage} component={LoginPage} />
+          <Route path={routes.contactsPage} component={ContactsPage} />
+
+          <Route component={HomeView} />
+        </Switch>
+      </Suspense>
+    </>
+    )
+  }
+}
+
+// const App = () => {
+//   return (
+//     <>
+//       <AppBar />
+
+//       <Suspense fallback={<Loader />}>
+//         <Switch>
+//           <Route exact path={routes.home} component={HomeView} />
+//           <Route exact path={routes.registerPage} component={RegisterPage} />
+//           <Route path={routes.loginPage} component={LoginPage} />
+//           <Route path={routes.contactsPage} component={ContactsPage} />
+
+//           <Route component={HomeView} />
+//         </Switch>
+//       </Suspense>
+//     </>
+//   );
+// };
+
+const mapDispatchToProps ={
+  onGetCurrentUser: authOperations.getCurrentUser
+}
+export default connect(null, mapDispatchToProps) (App);
