@@ -23,7 +23,6 @@ const submit =
     } catch (error) {
       dispatch(actions.addContactsError(error.message));
     }
-
   };
 
 const deleteContact = (contactId) => (dispatch) => {

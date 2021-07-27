@@ -1,7 +1,7 @@
-import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { authSelectors } from '../redux/auth';
+import React from "react";
+import { Route, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+import { authSelectors } from "../../redux/auth";
 
 /**
  * - Если маршрут приватный и пользователь залогинен, рендерит компонент
@@ -15,13 +15,13 @@ const PrivateRoute = ({
 }) => (
   <Route
     {...routeProps}
-    render={props =>
+    render={(props) =>
       isAuthenticated ? <Component {...props} /> : <Redirect to={redirectTo} />
     }
   />
 );
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   isAuthenticated: authSelectors.getIsAuthenticated(state),
 });
 

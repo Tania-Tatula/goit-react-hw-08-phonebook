@@ -1,4 +1,4 @@
-// import "./App.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { Component, Suspense, lazy } from "react";
 import { Route, Switch } from "react-router-dom";
 import Loader from "./components/Loader";
@@ -35,8 +35,13 @@ class App extends Component {
         <Suspense fallback={<Loader />}>
           <Switch>
             <PublicRoute exact path={routes.home} component={HomeView} />
-            <PublicRoute exact path={routes.registerPage} restricted
-              redirectTo='/contacts' component={RegisterPage} />
+            <PublicRoute
+              exact
+              path={routes.registerPage}
+              restricted
+              redirectTo='/contacts'
+              component={RegisterPage}
+            />
             <PublicRoute
               path={routes.loginPage}
               restricted
@@ -56,25 +61,6 @@ class App extends Component {
     );
   }
 }
-
-// const App = () => {
-//   return (
-//     <>
-//       <AppBar />
-
-//       <Suspense fallback={<Loader />}>
-//         <Switch>
-//           <Route exact path={routes.home} component={HomeView} />
-//           <Route exact path={routes.registerPage} component={RegisterPage} />
-//           <Route path={routes.loginPage} component={LoginPage} />
-//           <Route path={routes.contactsPage} component={ContactsPage} />
-
-//           <Route component={HomeView} />
-//         </Switch>
-//       </Suspense>
-//     </>
-//   );
-// };
 
 const mapDispatchToProps = {
   onGetCurrentUser: authOperations.getCurrentUser,

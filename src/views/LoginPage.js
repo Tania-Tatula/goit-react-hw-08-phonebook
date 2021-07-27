@@ -1,34 +1,36 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { authOperations } from '../redux/auth';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { authOperations } from "../redux/auth";
+import { Button } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 
 const styles = {
   form: {
     width: 320,
   },
   label: {
-    display: 'flex',
-    flexDirection: 'column',
+    display: "flex",
+    flexDirection: "column",
     marginBottom: 15,
   },
 };
 
 class LoginPage extends Component {
   state = {
-    email: '',
-    password: '',
+    email: "",
+    password: "",
   };
 
   handleChange = ({ target: { name, value } }) => {
     this.setState({ [name]: value });
   };
 
-  handleSubmit = e => {
+  handleSubmit = (e) => {
     e.preventDefault();
 
     this.props.onLogin(this.state);
 
-    this.setState({ name: '', email: '', password: '' });
+    this.setState({ name: "", email: "", password: "" });
   };
 
   render() {
@@ -38,33 +40,35 @@ class LoginPage extends Component {
       <div>
         <h1>Страница логина</h1>
 
-        <form
+        <Form
           onSubmit={this.handleSubmit}
           style={styles.form}
-          autoComplete="off"
+          autoComplete='off'
         >
-          <label style={styles.label}>
+          <Form.Label style={styles.label}>
             Почта
-            <input
-              type="email"
-              name="email"
+            <Form.Control
+              type='email'
+              name='email'
               value={email}
               onChange={this.handleChange}
             />
-          </label>
+          </Form.Label>
 
-          <label style={styles.label}>
+          <Form.Label style={styles.label}>
             Пароль
-            <input
-              type="password"
-              name="password"
+            <Form.Control
+              type='password'
+              name='password'
               value={password}
               onChange={this.handleChange}
             />
-          </label>
+          </Form.Label>
 
-          <button type="submit">Войти</button>
-        </form>
+          <Button variant='outline-success' type='submit'>
+            Войти
+          </Button>
+        </Form>
       </div>
     );
   }
@@ -75,5 +79,3 @@ const mapDispatchToProps = {
 };
 
 export default connect(null, mapDispatchToProps)(LoginPage);
-
-

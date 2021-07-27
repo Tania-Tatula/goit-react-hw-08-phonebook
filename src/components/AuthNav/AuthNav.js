@@ -1,25 +1,24 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import routes from '../../routes';
+import React from "react";
+import { NavLink } from "react-router-dom";
+import routes from "../../routes";
 
 const styles = {
   link: {
-    display: 'inline-block',
-    textDecoration: 'none',
+    display: "inline-block",
+    textDecoration: "none",
     padding: 12,
     fontWeight: 700,
-    color: '#2A363B',
+    color: "#2A363B",
   },
   activeLink: {
-    color: '#E84A5F',
+    color: "#E84A5F",
   },
 };
 
 const AuthNav = () => (
   <div>
     <NavLink
-              to={routes.registerPage}
-
+      to={routes.registerPage}
       exact
       style={styles.link}
       activeStyle={styles.activeLink}
@@ -34,9 +33,6 @@ const AuthNav = () => (
     >
       Логин
     </NavLink>
-
-
-
   </div>
 );
 

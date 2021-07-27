@@ -72,3 +72,18 @@
   text-align: center;
   font-size: 18px;
 }
+
+.container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar {
+  margin-right: 4px;
+}
+
+.name {
+  font-weight: 700;
+  margin-right: 12px;
+}
