@@ -38,37 +38,38 @@ class LoginPage extends Component {
 
     return (
       <div>
-        <h1>Страница логина</h1>
+        <h1 className='title'>Страница логина</h1>
+        <div className='container'>
+          <Form
+            onSubmit={this.handleSubmit}
+            style={styles.form}
+            autoComplete='off'
+          >
+            <Form.Label style={styles.label}>
+              Почта
+              <Form.Control
+                type='email'
+                name='email'
+                value={email}
+                onChange={this.handleChange}
+              />
+            </Form.Label>
 
-        <Form
-          onSubmit={this.handleSubmit}
-          style={styles.form}
-          autoComplete='off'
-        >
-          <Form.Label style={styles.label}>
-            Почта
-            <Form.Control
-              type='email'
-              name='email'
-              value={email}
-              onChange={this.handleChange}
-            />
-          </Form.Label>
+            <Form.Label style={styles.label}>
+              Пароль
+              <Form.Control
+                type='password'
+                name='password'
+                value={password}
+                onChange={this.handleChange}
+              />
+            </Form.Label>
 
-          <Form.Label style={styles.label}>
-            Пароль
-            <Form.Control
-              type='password'
-              name='password'
-              value={password}
-              onChange={this.handleChange}
-            />
-          </Form.Label>
-
-          <Button variant='outline-success' type='submit'>
-            Войти
-          </Button>
-        </Form>
+            <Button variant='outline-success' type='submit'>
+              Войти
+            </Button>
+          </Form>
+        </div>
       </div>
     );
   }

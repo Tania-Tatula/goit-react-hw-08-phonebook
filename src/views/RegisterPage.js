@@ -39,47 +39,48 @@ class RegisterPage extends Component {
 
     return (
       <div>
-        <h1>Страница регистрации</h1>
+        <h1 className='title'>Страница регистрации</h1>
+        <div className='container'>
+          <Form
+            onSubmit={this.handleSubmit}
+            style={styles.form}
+            autoComplete='off'
+          >
+            <Form.Label style={styles.label}>
+              Имя
+              <Form.Control
+                type='text'
+                name='name'
+                value={name}
+                onChange={this.handleChange}
+              />
+            </Form.Label>
 
-        <Form
-          onSubmit={this.handleSubmit}
-          style={styles.form}
-          autoComplete='off'
-        >
-          <Form.Label style={styles.label}>
-            Имя
-            <Form.Control
-              type='text'
-              name='name'
-              value={name}
-              onChange={this.handleChange}
-            />
-          </Form.Label>
+            <Form.Label style={styles.label}>
+              Почта
+              <Form.Control
+                type='email'
+                name='email'
+                value={email}
+                onChange={this.handleChange}
+              />
+            </Form.Label>
 
-          <Form.Label style={styles.label}>
-            Почта
-            <Form.Control
-              type='email'
-              name='email'
-              value={email}
-              onChange={this.handleChange}
-            />
-          </Form.Label>
+            <Form.Label style={styles.label}>
+              Пароль
+              <Form.Control
+                type='password'
+                name='password'
+                value={password}
+                onChange={this.handleChange}
+              />
+            </Form.Label>
 
-          <Form.Label style={styles.label}>
-            Пароль
-            <Form.Control
-              type='password'
-              name='password'
-              value={password}
-              onChange={this.handleChange}
-            />
-          </Form.Label>
-
-          <Button variant='outline-success' type='submit'>
-            Зарегистрироваться
-          </Button>
-        </Form>
+            <Button variant='outline-success' type='submit'>
+              Зарегистрироваться
+            </Button>
+          </Form>
+        </div>
       </div>
     );
   }
